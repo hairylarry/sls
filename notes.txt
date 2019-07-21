@@ -1,0 +1,34 @@
+SLS - Simple Login System
+
+Simple user manager with encrypted passwords for admin use only, no end user interface. The admin user creates and maintains all login accounts.
+
+SLS is web based and uses SESSION variables for data security. A snippet of code at the top of your php file redirects you to the login screen if you are not logged in.
+
+This program was developed on php 7.2 and uses the default encryption, bcrypt. Changing encryption would be easy.
+
+All sql queries use the mysqli system.
+
+The admin user is always called admin. There's only one admin user. If there is no admin user in the database the program forces you to create one before you can continue. If you forget your admin password you can use phpMyAdmin to delete the admin record and the progam will force you to enter a new admin password the next time you login.
+
+Here's the table
+
+CREATE TABLE `login` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+My connect string is
+
+include "/home/deltaboo/hairylar.sql"; //connect 
+
+You will have to use your own. Keep it out of your webspace.
+
+index.php could be login.php or whatever works for you. You will have to make a couple of edits in action.php to change it.
+
+Please fork this program with new features. I am intentionally keeping this version stripped down and simple.
+
+Email hairylarry@gmail.com with bugs, suggestions, questions, or forks.
+
+Thanks
+
